@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-gold: #D4AF37;
+    --color-obsidian: #0A0A0A;
+    --color-charcoal: #121212;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-obsidian);
+    color: #E8E8E8;
+    font-family: 'Inter', sans-serif;
+  }
+
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0A0A0A;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #D4AF37;
+    border-radius: 2px;
+  }
+
+  ::selection {
+    background: rgba(212, 175, 55, 0.25);
+    color: #E8E8E8;
+  }
+}
+
+@layer components {
+  .font-display {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+
+  /* Gold divider line */
+  .gold-rule {
+    @apply w-16 h-px bg-gold-gradient mx-auto my-6;
+  }
+
+  /* Skeleton loader */
+  .skeleton {
+    background: linear-gradient(
+      90deg,
+      #1A1A1A 0%,
+      #252525 50%,
+      #1A1A1A 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.8s linear infinite;
+  }
+
+  /* Glass card */
+  .glass-card {
+    @apply bg-elevated/60 backdrop-blur-sm border border-border rounded-sm;
+  }
+
+  /* Gold button */
+  .btn-gold {
+    @apply bg-gold-gradient text-obsidian font-semibold text-sm tracking-widest uppercase
+           px-8 py-3 transition-all duration-300
+           hover:shadow-gold-md hover:scale-[1.02] active:scale-[0.98];
+  }
+
+  /* Ghost button */
+  .btn-ghost {
+    @apply border border-gold/40 text-gold font-medium text-sm tracking-widest uppercase
+           px-8 py-3 transition-all duration-300
+           hover:border-gold hover:bg-gold/5 hover:shadow-gold-sm;
+  }
+
+  /* Verified badge */
+  .badge-verified {
+    @apply inline-flex items-center gap-1 text-[10px] font-semibold tracking-widest uppercase
+           text-obsidian bg-gold-gradient px-2 py-0.5;
+  }
+}

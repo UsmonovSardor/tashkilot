@@ -1,0 +1,26 @@
+# Backend
+backend/.env
+backend/vendor/
+backend/node_modules/
+backend/storage/logs/*
+backend/storage/framework/cache/*
+backend/storage/framework/sessions/*
+backend/storage/framework/views/*
+backend/.phpunit.result.cache
+backend/bootstrap/cache/*.php
+
+# Frontend
+frontend/.env.local
+frontend/.env.production
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/.vercel
+
+# General
+.DS_Store
+*.log
+*.swp
+.idea/
+.vscode/
+*.iml

@@ -1,65 +1,68 @@
 #!/bin/sh
-set -e
 
-echo "🚀 VelvetHour API starting..."
+echo "=== VelvetHour API starting ==="
 
 # Generate app key if missing
 if [ -z "$APP_KEY" ]; then
-    echo "🔑 Generating APP_KEY..."
-    php artisan key:generate --force
+    echo "[key] Generating APP_KEY..."
+    php artisan key:generate --force 2>/dev/null || true
 fi
 
-# Cache config and routes BEFORE starting web server
-echo "⚙️  Caching config..."
-php artisan config:cache 2>/dev/null || echo "Config cache skipped"
-php artisan route:cache  2>/dev/null || echo "Route cache skipped"
+# Cache config and routes (non-blocking, ignore errors)
+echo "[cache] Caching config..."
+php artisan config:cache 2>/dev/null && echo "[cache] Config cached" || echo "[cache] Config cache skipped"
+php artisan route:cache  2>/dev/null && echo "[cache] Routes cached" || echo "[cache] Route cache skipped"
 
-# Start supervisord (nginx + php-fpm) immediately
-# So healthcheck at /up passes right away
-echo "✅ Starting web server (nginx + php-fpm)..."
-/usr/bin/supervisord -c /etc/supervisor/conf.d/supervisord.conf &
-SUPERVISOR_PID=$!
+# Start PHP-FPM as background daemon
+echo "[fpm] Starting PHP-FPM..."
+php-fpm -D
+echo "[fpm] PHP-FPM started"
 
-# Give nginx/php-fpm 3 seconds to boot
-sleep 3
-echo "✅ Web server running — healthcheck should pass now"
+# Start queue workers in background (2 workers, no supervisord needed)
+php artisan queue:work redis --sleep=3 --tries=3 --max-time=3600 --quiet &
+php artisan queue:work redis --sleep=3 --tries=3 --max-time=3600 --quiet &
+echo "[queue] 2 queue workers started"
 
-# Run DB tasks in background (migrations + seeding)
+# Run DB migrations + seed in background
 (
-    echo "⏳ Waiting for PostgreSQL..."
-    RETRIES=30
-    COUNT=0
+    echo "[db] Waiting for PostgreSQL..."
+    RETRIES=0
     until php -r "
         try {
-            \$dsn = 'pgsql:host=' . getenv('DB_HOST') . ';port=' . getenv('DB_PORT') . ';dbname=' . getenv('DB_DATABASE');
-            new PDO(\$dsn, getenv('DB_USERNAME'), getenv('DB_PASSWORD'), [PDO::ATTR_TIMEOUT => 5]);
+            \$pdo = new PDO(
+                'pgsql:host='.getenv('DB_HOST').';port='.getenv('DB_PORT').';dbname='.getenv('DB_DATABASE'),
+                getenv('DB_USERNAME'),
+                getenv('DB_PASSWORD'),
+                [PDO::ATTR_TIMEOUT => 5]
+            );
             echo 'ok';
         } catch(Exception \$e) { exit(1); }
     " 2>/dev/null | grep -q ok; do
-        COUNT=$((COUNT+1))
-        if [ $COUNT -ge $RETRIES ]; then
-            echo "❌ PostgreSQL not reachable after ${RETRIES} attempts"
+        RETRIES=$((RETRIES + 1))
+        if [ $RETRIES -ge 40 ]; then
+            echo "[db] ERROR: PostgreSQL not reachable after 40 retries"
             exit 1
         fi
-        echo "   Retry $COUNT/$RETRIES..."
+        echo "[db] Retry $RETRIES/40..."
         sleep 3
     done
 
-    echo "✅ PostgreSQL connected"
+    echo "[db] PostgreSQL connected! Running migrations..."
+    php artisan migrate --force 2>&1 && echo "[db] Migrations done"
 
-    echo "🗄️  Running migrations..."
-    php artisan migrate --force && echo "✅ Migrations done"
+    echo "[db] Checking if seeding needed..."
+    USER_COUNT=$(php artisan tinker --execute="echo App\Models\User::count();" 2>/dev/null | tail -1 | tr -d '[:space:]')
+    echo "[db] Current user count: '$USER_COUNT'"
 
-    # Seed only if users table is empty
-    USER_COUNT=$(php artisan tinker --execute="echo \App\Models\User::count();" 2>/dev/null | grep -E '^[0-9]+$' | tail -1)
-    if [ -z "$USER_COUNT" ] || [ "$USER_COUNT" = "0" ]; then
-        echo "🌱 Seeding demo data (18 companions, 9 vehicles, 6 venues)..."
-        php artisan db:seed --force && echo "✅ Seeding complete"
+    if [ "$USER_COUNT" = "0" ] || [ -z "$USER_COUNT" ]; then
+        echo "[db] Seeding demo data..."
+        php artisan db:seed --force 2>&1 && echo "[db] Seeding complete!"
     else
-        echo "✅ Database already has $USER_COUNT users — skipping seed"
+        echo "[db] DB already has data ($USER_COUNT users), skipping seed"
     fi
-
 ) &
 
-# Keep container alive by waiting on supervisord
-wait $SUPERVISOR_PID
+# Start NGINX in foreground — this keeps the container alive
+# exec replaces the shell, so nginx is PID 1 of this process
+echo "[nginx] Starting nginx on port 8080..."
+exec nginx -g "daemon off;"

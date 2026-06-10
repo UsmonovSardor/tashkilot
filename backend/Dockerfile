@@ -15,7 +15,6 @@ RUN apk add --no-cache \
     libpng-dev \
     libjpeg-turbo-dev \
     freetype-dev \
-    # Required for pecl extensions
     autoconf \
     g++ \
     make \
@@ -32,10 +31,8 @@ RUN apk add --no-cache \
         bcmath \
         gd \
         opcache \
-    # Install Redis extension via pecl (needs autoconf/make/g++)
     && pecl install redis \
     && docker-php-ext-enable redis \
-    # Clean up build tools to reduce image size
     && apk del autoconf g++ make linux-headers \
     && rm -rf /tmp/pear
 
@@ -48,34 +45,34 @@ COPY docker/php.ini /usr/local/etc/php/conf.d/custom.ini
 # Nginx config
 COPY docker/nginx.conf /etc/nginx/nginx.conf
 
-# Supervisord config
-COPY docker/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
-
 # Startup script
 COPY docker/start.sh /start.sh
 RUN chmod +x /start.sh \
-    && mkdir -p /var/log/supervisor /var/log/nginx
+    && mkdir -p /var/log/supervisor /var/log/nginx /run
 
 WORKDIR /var/www/html
 
 # Copy composer files first for Docker layer caching
-COPY composer.json composer.lock* ./
+COPY composer.json ./
 
-# Install PHP dependencies
+# Install PHP dependencies (with scripts for package:discover)
 RUN composer install \
     --no-interaction \
-    --no-scripts \
     --no-dev \
     --optimize-autoloader \
-    --prefer-dist
+    --prefer-dist \
+    --no-scripts
 
 # Copy application code
 COPY . .
 
-# Set permissions
+# Run package discovery and set permissions
+RUN composer run-script post-autoload-dump 2>/dev/null || \
+    php artisan package:discover --ansi 2>/dev/null || true
+
 RUN chown -R www-data:www-data /var/www/html \
-    && chmod -R 755 /var/www/html/storage \
-    && chmod -R 755 /var/www/html/bootstrap/cache \
+    && chmod -R 775 /var/www/html/storage \
+    && chmod -R 775 /var/www/html/bootstrap/cache \
     && php artisan storage:link 2>/dev/null || true
 
 EXPOSE 8080

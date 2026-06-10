@@ -43,7 +43,7 @@ export default function HomePage() {
       <Navbar />
 
       {/* ── HERO ─────────────────────────────────────────────── */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <section className="grain-overlay relative min-h-screen flex items-center justify-center overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=1920&q=85)' }}
@@ -53,15 +53,26 @@ export default function HomePage() {
         </div>
 
         <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
-          <motion.p {...fadeUp} className="text-gold text-xs font-semibold tracking-[0.4em] uppercase mb-8">
-            {t('eyebrow')}
-          </motion.p>
+          {/* Ornament top */}
+          <motion.div
+            {...fadeUp}
+            className="flex items-center justify-center gap-4 mb-8"
+          >
+            <div className="w-8 h-px bg-gradient-to-r from-transparent to-gold/60" />
+            <p className="text-gold text-[10px] font-medium tracking-[0.5em] uppercase">
+              {t('eyebrow')}
+            </p>
+            <div className="w-8 h-px bg-gradient-to-l from-transparent to-gold/60" />
+          </motion.div>
+
           <motion.h1
             {...fadeUp}
-            transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display text-6xl md:text-8xl lg:text-9xl font-light text-platinum leading-none mb-6"
+            transition={{ duration: 0.9, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+            className="font-display font-light leading-[0.9] mb-6"
+            style={{ fontSize: 'clamp(4rem, 12vw, 8rem)' }}
           >
-            Velvet<span className="block italic text-gold">Hour</span>
+            <span className="block text-platinum tracking-[0.04em]">Velvet</span>
+            <span className="block text-shimmer italic tracking-[0.06em]">Hour</span>
           </motion.h1>
           <motion.div {...fadeUp} transition={{ delay: 0.2 }} className="gold-rule" />
           <motion.p
@@ -254,6 +265,52 @@ export default function HomePage() {
               </motion.div>
             )
           })}
+        </div>
+      </section>
+
+      {/* ── TESTIMONIALS ────────────────────────────────────── */}
+      <section className="py-28 px-4 bg-charcoal border-y border-border">
+        <div className="max-w-5xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <p className="text-gold text-xs tracking-[0.4em] uppercase mb-4">Testimonials</p>
+            <h2 className="font-display text-4xl md:text-5xl text-platinum font-light">
+              Voices of the <em>Elite</em>
+            </h2>
+            <div className="gold-rule" />
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              { quote: 'The most discreet and professional concierge experience I have encountered across three continents. VelvetHour operates at a different level entirely.', initials: 'A.K.', title: 'Managing Partner, Sovereign Capital' },
+              { quote: 'From diplomatic reception planning to fleet coordination — executed flawlessly. My team has never presented better to our Gulf partners.', initials: 'R.M.', title: 'CEO, Meridian Holdings' },
+              { quote: 'Invitation-only means something here. Every companion is exceptional, every venue immaculate. This is what genuine exclusivity feels like.', initials: 'S.T.', title: 'Principal Investor, Asia Pacific' },
+            ].map((t, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.12 }}
+                className="glass-card p-8 relative"
+              >
+                <div className="text-gold/20 font-display text-6xl leading-none absolute top-4 left-6 select-none">"</div>
+                <p className="text-platinum/70 text-sm leading-relaxed mb-6 pt-4 italic">
+                  {t.quote}
+                </p>
+                <div className="flex items-center gap-3 pt-4 border-t border-border">
+                  <div className="w-9 h-9 border border-gold/30 flex items-center justify-center">
+                    <span className="font-display text-sm text-gold font-medium">{t.initials}</span>
+                  </div>
+                  <p className="text-muted text-xs tracking-wide">{t.title}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 

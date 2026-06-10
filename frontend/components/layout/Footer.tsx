@@ -2,6 +2,7 @@
 
 import { useTranslations } from 'next-intl'
 import { Link } from '@/i18n/navigation'
+import VHLogo from '@/components/ui/VHLogo'
 
 export default function Footer() {
   const t = useTranslations('footer')
@@ -14,10 +15,13 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto">
         <div className="grid md:grid-cols-4 gap-12 mb-16">
           <div className="md:col-span-2">
-            <p className="font-display text-2xl mb-4">
-              <span className="text-platinum">Velvet</span>
-              <span className="text-gold italic">Hour</span>
-            </p>
+            <div className="flex items-center gap-3 mb-4">
+              <VHLogo size={32} />
+              <p className="font-display text-2xl font-light tracking-[0.15em]">
+                <span className="text-platinum">Velvet</span>
+                <span className="text-shimmer italic ml-0.5">Hour</span>
+              </p>
+            </div>
             <p className="text-muted text-sm leading-relaxed max-w-xs">{t('tagline')}</p>
             <div className="mt-6 flex gap-1">
               <div className="w-8 h-px bg-gold" />

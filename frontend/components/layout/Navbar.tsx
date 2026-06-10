@@ -6,6 +6,7 @@ import { Menu, X } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import { Link } from '@/i18n/navigation'
 import LanguageSwitcher from '@/components/ui/LanguageSwitcher'
+import VHLogo from '@/components/ui/VHLogo'
 
 export default function Navbar() {
   const t = useTranslations('nav')
@@ -37,9 +38,12 @@ export default function Navbar() {
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-          <Link href="/" className="font-display text-xl font-medium tracking-wider">
-            <span className="text-platinum">Velvet</span>
-            <span className="text-gold italic">Hour</span>
+          <Link href="/" className="flex items-center gap-2.5 group">
+            <VHLogo size={26} />
+            <span className="font-display font-light tracking-[0.18em] text-[17px] leading-none">
+              <span className="text-platinum group-hover:text-platinum/90 transition-colors">Velvet</span>
+              <span className="text-shimmer italic ml-0.5">Hour</span>
+            </span>
           </Link>
 
           <div className="hidden md:flex items-center gap-10">

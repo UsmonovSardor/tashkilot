@@ -17,75 +17,147 @@
 
   html {
     scroll-behavior: smooth;
+    cursor: none;
   }
 
   body {
     background-color: var(--color-obsidian);
     color: #E8E8E8;
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-inter), Inter, system-ui, sans-serif;
+    cursor: none;
   }
 
-  ::-webkit-scrollbar {
-    width: 4px;
-  }
-  ::-webkit-scrollbar-track {
-    background: #0A0A0A;
-  }
+  /* Custom gold scrollbar */
+  ::-webkit-scrollbar { width: 3px; }
+  ::-webkit-scrollbar-track { background: #0A0A0A; }
   ::-webkit-scrollbar-thumb {
-    background: #D4AF37;
+    background: linear-gradient(180deg, #D4AF37 0%, #A8891F 100%);
     border-radius: 2px;
   }
 
   ::selection {
-    background: rgba(212, 175, 55, 0.25);
-    color: #E8E8E8;
+    background: rgba(212, 175, 55, 0.2);
+    color: #F7E7CE;
+  }
+
+  /* Hide default cursor on all interactive elements */
+  a, button, [role="button"], input, select, textarea, label {
+    cursor: none;
   }
 }
 
 @layer components {
+  /* ── Typography ────────────────────────────────────── */
   .font-display {
-    font-family: 'Playfair Display', Georgia, serif;
+    font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
   }
 
-  /* Gold divider line */
+  /* ── Gold rule ─────────────────────────────────────── */
   .gold-rule {
     @apply w-16 h-px bg-gold-gradient mx-auto my-6;
   }
 
-  /* Skeleton loader */
+  /* ── Skeleton ──────────────────────────────────────── */
   .skeleton {
-    background: linear-gradient(
-      90deg,
-      #1A1A1A 0%,
-      #252525 50%,
-      #1A1A1A 100%
-    );
+    background: linear-gradient(90deg, #1A1A1A 0%, #252525 50%, #1A1A1A 100%);
     background-size: 200% 100%;
     animation: shimmer 1.8s linear infinite;
   }
 
-  /* Glass card */
+  /* ── Glass card ────────────────────────────────────── */
   .glass-card {
     @apply bg-elevated/60 backdrop-blur-sm border border-border rounded-sm;
   }
 
-  /* Gold button */
+  /* ── Buttons ────────────────────────────────────────── */
   .btn-gold {
-    @apply bg-gold-gradient text-obsidian font-semibold text-sm tracking-widest uppercase
-           px-8 py-3 transition-all duration-300
+    @apply relative overflow-hidden bg-gold-gradient text-obsidian font-semibold
+           text-sm tracking-widest uppercase px-8 py-3
+           transition-all duration-300 cursor-none
            hover:shadow-gold-md hover:scale-[1.02] active:scale-[0.98];
   }
 
-  /* Ghost button */
+  /* Shimmer sweep on hover */
+  .btn-gold::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.35) 50%, transparent 60%);
+    transform: translateX(-100%);
+    transition: transform 0.5s ease;
+  }
+  .btn-gold:hover::after {
+    transform: translateX(100%);
+  }
+
   .btn-ghost {
     @apply border border-gold/40 text-gold font-medium text-sm tracking-widest uppercase
-           px-8 py-3 transition-all duration-300
+           px-8 py-3 transition-all duration-300 cursor-none
            hover:border-gold hover:bg-gold/5 hover:shadow-gold-sm;
   }
 
-  /* Verified badge */
+  /* ── Badge ──────────────────────────────────────────── */
   .badge-verified {
     @apply inline-flex items-center gap-1 text-[10px] font-semibold tracking-widest uppercase
            text-obsidian bg-gold-gradient px-2 py-0.5;
   }
+
+  /* ── Shimmer text (hero headline) ──────────────────── */
+  .text-shimmer {
+    background: linear-gradient(
+      90deg,
+      #D4AF37 0%,
+      #F5D469 25%,
+      #FFFDE7 50%,
+      #F5D469 75%,
+      #D4AF37 100%
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: textShimmer 4s ease-in-out infinite;
+  }
+
+  /* ── Film grain overlay ─────────────────────────────── */
+  .grain-overlay {
+    position: relative;
+  }
+  .grain-overlay::before {
+    content: '';
+    position: absolute;
+    inset: -50%;
+    width: 200%;
+    height: 200%;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+    opacity: 0.035;
+    pointer-events: none;
+    animation: grain 0.5s steps(2) infinite;
+    z-index: 1;
+  }
+
+  /* ── Divider ornament ──────────────────────────────── */
+  .ornament-divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    justify-content: center;
+    margin: 1.5rem auto;
+  }
+  .ornament-divider::before,
+  .ornament-divider::after {
+    content: '';
+    flex: 1;
+    max-width: 60px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #D4AF37, transparent);
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 }

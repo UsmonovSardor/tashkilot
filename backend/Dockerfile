@@ -1,20 +1,25 @@
 FROM php:8.3-fpm-alpine AS base
 
-# Install system dependencies
+# Install system dependencies + build tools (autoconf, make, g++ needed for pecl)
 RUN apk add --no-cache \
     nginx \
     supervisor \
     postgresql-dev \
-    redis \
     libzip-dev \
     zip \
     unzip \
     git \
     curl \
+    bash \
     oniguruma-dev \
     libpng-dev \
     libjpeg-turbo-dev \
     freetype-dev \
+    # Required for pecl extensions
+    autoconf \
+    g++ \
+    make \
+    linux-headers \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install \
         pdo \
@@ -26,10 +31,13 @@ RUN apk add --no-cache \
         pcntl \
         bcmath \
         gd \
-        opcache
-
-# Install Redis PHP extension
-RUN pecl install redis && docker-php-ext-enable redis
+        opcache \
+    # Install Redis extension via pecl (needs autoconf/make/g++)
+    && pecl install redis \
+    && docker-php-ext-enable redis \
+    # Clean up build tools to reduce image size
+    && apk del autoconf g++ make linux-headers \
+    && rm -rf /tmp/pear
 
 # Install Composer
 COPY --from=composer:2.7 /usr/bin/composer /usr/bin/composer
@@ -43,12 +51,17 @@ COPY docker/nginx.conf /etc/nginx/nginx.conf
 # Supervisord config
 COPY docker/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
+# Startup script
+COPY docker/start.sh /start.sh
+RUN chmod +x /start.sh \
+    && mkdir -p /var/log/supervisor /var/log/nginx
+
 WORKDIR /var/www/html
 
-# Copy composer files first (layer caching)
+# Copy composer files first for Docker layer caching
 COPY composer.json composer.lock* ./
 
-# Install PHP dependencies (no dev, optimized)
+# Install PHP dependencies
 RUN composer install \
     --no-interaction \
     --no-scripts \
@@ -59,20 +72,12 @@ RUN composer install \
 # Copy application code
 COPY . .
 
-# Generate app key if not set, set permissions
-RUN php artisan key:generate --force 2>/dev/null || true \
-    && chown -R www-data:www-data /var/www/html \
+# Set permissions
+RUN chown -R www-data:www-data /var/www/html \
     && chmod -R 755 /var/www/html/storage \
-    && chmod -R 755 /var/www/html/bootstrap/cache
-
-# Create storage link
-RUN php artisan storage:link 2>/dev/null || true
+    && chmod -R 755 /var/www/html/bootstrap/cache \
+    && php artisan storage:link 2>/dev/null || true
 
 EXPOSE 8080
-
-# Make startup script executable
-COPY docker/start.sh /start.sh
-RUN chmod +x /start.sh && \
-    mkdir -p /var/log/supervisor /var/log/nginx
 
 CMD ["/start.sh"]

@@ -1,0 +1,158 @@
+{
+  "nav": {
+    "companions": "Hamrohlar",
+    "venues": "Maydonlar",
+    "fleet": "Avtopark",
+    "signIn": "Kirish",
+    "requestAccess": "Kirish so'rash"
+  },
+  "home": {
+    "eyebrow": "Faqat taklifnoma bilan · 2024 · Toshkent",
+    "tagline": "Dunyoning eng eksklyuziv konsyerj platformasi. Elite hamrohlar, tanlangan maydonlar va hashamatli avtopark — hammasi bir tom ostida.",
+    "cta1": "Hamrohlarni ko'rish",
+    "cta2": "Kirish so'rash",
+    "scroll": "Pastga",
+    "stats": {
+      "companions": "Elite Hamrohlar",
+      "venues": "Eksklyuziv Maydonlar",
+      "vehicles": "Hashamatli Avtomobillar",
+      "verified": "Tasdiqlangan Profillar"
+    },
+    "services": {
+      "eyebrow": "Xizmatlarimiz",
+      "heading": "1% uchun yaratilgan",
+      "companion": {
+        "title": "Elite Hamroh Tanlash",
+        "desc": "Ko'p tilli, malakasi tasdiqlangan hamrohlarni sun'iy intellekt yordamida sizning talablaringizga moslash. Korporativ tadbirlar, diplomatik kechki ovqatlar, xalqaro sayohatlar.",
+        "cta": "Hamrohlarni ko'rish"
+      },
+      "venue": {
+        "title": "Premium Maydon Bron Qilish",
+        "desc": "Xususiy pentxauslar, tom ustidagi teraslar, yopiq klublar va villalar — soatlik ijara. Real vaqtda mavjudlik va dinamik VIP qo'shimchalar.",
+        "cta": "Maydonlarni ko'rish"
+      },
+      "fleet": {
+        "title": "Hashamatli Avtopark va Haydovchilar",
+        "desc": "Rolls-Royce, Bentley, Maybach. Ko'p tilli, VIP protokol bo'yicha o'qitilgan haydovchilar. Soatlik, kunlik va aeroport transferi.",
+        "cta": "Avtoparkni ko'rish"
+      }
+    },
+    "featured": {
+      "eyebrow": "Tanlangan",
+      "heading": "Elite Hamrohlar",
+      "viewAll": "Barchasini ko'rish",
+      "bookToReveal": "Ko'rish uchun bron qiling",
+      "verified": "Tasdiqlangan",
+      "fromHr": "${rate}/soatdan"
+    },
+    "trust": {
+      "eyebrow": "Nima uchun VelvetHour",
+      "heading": "Xavfsizlik. Maxfiylik.",
+      "headingItalic": "Mukammallik.",
+      "identity": {
+        "title": "Tasdiqlangan Shaxslar",
+        "desc": "Har bir hamroh va haydovchi qattiq biografiya tekshiruvi, hujjat tekshiruvi va shaxsan suhbatdan o'tadi."
+      },
+      "escrow": {
+        "title": "Eskrou Himoyali To'lovlar",
+        "desc": "Mablag'lar xavfsiz eskroda saqlanadi va faqat tadbir tugagandan so'ng xizmat ko'rsatuvchiga o'tkaziladi — mijozlar uchun nol xavf."
+      },
+      "privacy": {
+        "title": "Maxfiylik Niqobi",
+        "desc": "Hamrohlarning fotosuratlari bron tasdiqlanmaguncha xira ko'rinadi. Sizning maxfiyligingiz bizning arxitekturamiz."
+      },
+      "global": {
+        "title": "Global Ko'p Tillilik",
+        "desc": "Tarmog'imizda 15+ til. Xitoycha biznes uchrashuvlaridan arabcha diplomatik qabullarigacha."
+      }
+    },
+    "cta": {
+      "eyebrow": "Taklifnoma orqali kirish",
+      "heading": "G'ayriodatiy tajribaga tayyor misiz?",
+      "body": "Mukammallikdan kam narsaga rozi bo'lmaydigan asoschylar, rahbarlar va did arboblarining tanlangan jamoasiga qo'shiling.",
+      "btn": "Taklifnoma so'rash"
+    }
+  },
+  "companions": {
+    "eyebrow": "Elite Hamrohlar",
+    "heading": "Ideal Hamrohing",
+    "countLabel": "{count} ta tasdiqlangan hamroh mavjud. Ikki tomonlama gender moslashuvi va AI kuchi bilan.",
+    "search": "Ism, ko'nikma bo'yicha qidirish...",
+    "noResults": "Sizning mezonlaringizga mos hamroh topilmadi.",
+    "clearFilters": "Filtrlarni tozalash",
+    "sort": {
+      "rating": "Eng yuqori reyting",
+      "hourlyAsc": "Narx: pasdan yuqoriga",
+      "hourlyDesc": "Narx: yuqoridan pastga",
+      "aiMatch": "AI Mos kelish"
+    },
+    "filters": {
+      "all": "Barchasi",
+      "corporate": "Korporativ",
+      "diplomatic": "Diplomatik",
+      "gala": "Gala",
+      "cultural": "Madaniy",
+      "fintech": "FinTex",
+      "social": "Ijtimoiy",
+      "wellness": "Sog'lik"
+    },
+    "card": {
+      "verified": "Tasdiqlangan",
+      "fromHr": "${rate}/soatdan",
+      "bookToReveal": "Ko'rish uchun bron qiling",
+      "viewProfile": "Profilni ko'rish"
+    }
+  },
+  "venues": {
+    "eyebrow": "Eksklyuziv Maydonlar",
+    "heading": "Oddiylikdan Tashqari Makonslar",
+    "countLabel": "{count} ta maydon xususiy bronlash uchun mavjud.",
+    "perHour": "/soat",
+    "book": "Bron Qilish",
+    "amenities": "Qulayliklar",
+    "capacity": "Sig'im"
+  },
+  "fleet": {
+    "eyebrow": "Hashamatli Avtopark",
+    "heading": "Ulug'vorlik Bilan Keling",
+    "countLabel": "{count} ta avtomobil sertifikatlangan haydovchilar bilan.",
+    "perHour": "/soat",
+    "book": "Bron Qilish",
+    "passengers": "yo'lovchi",
+    "languages": "Tillar"
+  },
+  "auth": {
+    "login": {
+      "heading": "Xush Kelibsiz",
+      "sub": "VelvetHour hisobingizga kiring",
+      "email": "Elektron pochta",
+      "password": "Parol",
+      "forgot": "Parolni unutdingizmi?",
+      "submit": "Kirish",
+      "noAccount": "Hisobingiz yo'qmi?",
+      "register": "Kirish so'rash"
+    },
+    "register": {
+      "heading": "Kirish So'rash",
+      "sub": "Dunyoning eng eksklyuziv konsyerj platformasiga qo'shiling",
+      "firstName": "Ism",
+      "lastName": "Familiya",
+      "email": "Elektron pochta",
+      "password": "Parol",
+      "confirmPassword": "Parolni tasdiqlash",
+      "submit": "Ariza Yuborish",
+      "haveAccount": "Hisobingiz bormi?",
+      "login": "Kirish",
+      "disclaimer": "Ariza yuborish orqali Foydalanish Shartlarimiz va NDA Siyosatimizga rozilik bildirasiz. Barcha arizalar 24 soat ichida ko'rib chiqiladi."
+    }
+  },
+  "footer": {
+    "tagline": "Dunyoning eng eksklyuziv konsyerj platformasi. Elite hamrohlar, tanlangan maydonlar va hashamatli avtopark — hammasi bir tom ostida.",
+    "services": "Xizmatlar",
+    "legal": "Huquqiy",
+    "serviceItems": ["Hamroh Tanlash", "Maydon Bron Qilish", "Avtopark va Haydovchilar", "Konsyerj Paketlar"],
+    "legalItems": ["Maxfiylik Siyosati", "Foydalanish Shartlari", "NDA Siyosati", "Eskrou Shartlari"],
+    "copyright": "© 2025 VelvetHour. Barcha huquqlar himoyalangan. Maxfiylik kafolatlanadi.",
+    "cities": "Toshkent · Dubay · London · Singapur"
+  }
+}

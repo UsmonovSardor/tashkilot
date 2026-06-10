@@ -1,25 +1,28 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
-
-const NAV_LINKS = [
-  { label: 'Companions', href: '/companions' },
-  { label: 'Venues',     href: '/venues' },
-  { label: 'Fleet',      href: '/fleet' },
-]
+import { useTranslations } from 'next-intl'
+import { Link } from '@/i18n/navigation'
+import LanguageSwitcher from '@/components/ui/LanguageSwitcher'
 
 export default function Navbar() {
-  const [scrolled,   setScrolled]   = useState(false)
-  const [menuOpen,   setMenuOpen]   = useState(false)
+  const t = useTranslations('nav')
+  const [scrolled, setScrolled] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40)
     window.addEventListener('scroll', onScroll)
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
+
+  const navLinks = [
+    { label: t('companions'), href: '/companions' },
+    { label: t('venues'), href: '/venues' },
+    { label: t('fleet'), href: '/fleet' },
+  ]
 
   return (
     <>
@@ -34,15 +37,13 @@ export default function Navbar() {
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-          {/* Wordmark */}
           <Link href="/" className="font-display text-xl font-medium tracking-wider">
             <span className="text-platinum">Velvet</span>
             <span className="text-gold italic">Hour</span>
           </Link>
 
-          {/* Desktop nav */}
           <div className="hidden md:flex items-center gap-10">
-            {NAV_LINKS.map((link) => (
+            {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
@@ -53,17 +54,19 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* Desktop CTAs */}
-          <div className="hidden md:flex items-center gap-4">
-            <Link href="/auth/login" className="text-muted text-xs tracking-widest uppercase hover:text-platinum transition-colors">
-              Sign In
+          <div className="hidden md:flex items-center gap-5">
+            <LanguageSwitcher />
+            <Link
+              href="/auth/login"
+              className="text-muted text-xs tracking-widest uppercase hover:text-platinum transition-colors"
+            >
+              {t('signIn')}
             </Link>
             <Link href="/auth/register" className="btn-gold !px-5 !py-2 !text-[10px]">
-              Request Access
+              {t('requestAccess')}
             </Link>
           </div>
 
-          {/* Mobile hamburger */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
             className="md:hidden text-muted hover:text-gold transition-colors"
@@ -73,7 +76,6 @@ export default function Navbar() {
         </div>
       </motion.nav>
 
-      {/* Mobile menu */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
@@ -83,7 +85,7 @@ export default function Navbar() {
             className="fixed inset-0 z-40 bg-charcoal/98 backdrop-blur-md pt-20 px-6 md:hidden"
           >
             <div className="flex flex-col gap-8 mt-10">
-              {NAV_LINKS.map((link) => (
+              {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
@@ -94,11 +96,22 @@ export default function Navbar() {
                 </Link>
               ))}
               <div className="pt-8 border-t border-border flex flex-col gap-4">
-                <Link href="/auth/login" onClick={() => setMenuOpen(false)} className="btn-ghost text-center">
-                  Sign In
+                <div className="flex justify-center">
+                  <LanguageSwitcher />
+                </div>
+                <Link
+                  href="/auth/login"
+                  onClick={() => setMenuOpen(false)}
+                  className="btn-ghost text-center"
+                >
+                  {t('signIn')}
                 </Link>
-                <Link href="/auth/register" onClick={() => setMenuOpen(false)} className="btn-gold text-center">
-                  Request Access
+                <Link
+                  href="/auth/register"
+                  onClick={() => setMenuOpen(false)}
+                  className="btn-gold text-center"
+                >
+                  {t('requestAccess')}
                 </Link>
               </div>
             </div>

@@ -1,0 +1,158 @@
+{
+  "nav": {
+    "companions": "Companions",
+    "venues": "Venues",
+    "fleet": "Fleet",
+    "signIn": "Sign In",
+    "requestAccess": "Request Access"
+  },
+  "home": {
+    "eyebrow": "Invitation Only · Est. 2024 · Tashkent",
+    "tagline": "The world's most exclusive concierge platform. Elite companions, curated venues, and a luxury fleet — all under one discreet roof.",
+    "cta1": "Explore Companions",
+    "cta2": "Request Access",
+    "scroll": "Scroll",
+    "stats": {
+      "companions": "Elite Companions",
+      "venues": "Exclusive Venues",
+      "vehicles": "Luxury Vehicles",
+      "verified": "Verified Profiles"
+    },
+    "services": {
+      "eyebrow": "Our Services",
+      "heading": "Curated for the",
+      "companion": {
+        "title": "Elite Companion Matching",
+        "desc": "AI-powered pairing of multi-lingual, skill-verified companions to your exact event requirements. Corporate galas, diplomatic dinners, international travel.",
+        "cta": "Browse Companions"
+      },
+      "venue": {
+        "title": "Premium Venue Booking",
+        "desc": "Private penthouses, rooftop terraces, secret members clubs, and estate villas — bookable by the hour. Real-time availability with dynamic VIP add-ons.",
+        "cta": "Explore Venues"
+      },
+      "fleet": {
+        "title": "Luxury Fleet & Chauffeur",
+        "desc": "Rolls-Royce, Bentley, Maybach. Multi-lingual drivers with VIP protocol training. Hourly, daily, and airport transfer rates.",
+        "cta": "View Fleet"
+      }
+    },
+    "featured": {
+      "eyebrow": "Featured",
+      "heading": "Elite Companions",
+      "viewAll": "View All",
+      "bookToReveal": "Book to Reveal",
+      "verified": "Verified",
+      "fromHr": "from ${rate}/hr"
+    },
+    "trust": {
+      "eyebrow": "Why VelvetHour",
+      "heading": "Security. Discretion.",
+      "headingItalic": "Excellence.",
+      "identity": {
+        "title": "Verified Identities",
+        "desc": "Every companion and driver undergoes rigorous background verification, document checks, and in-person vetting."
+      },
+      "escrow": {
+        "title": "Escrow-Protected Payments",
+        "desc": "Funds are held in secure escrow and only released to providers after event completion — zero risk for clients."
+      },
+      "privacy": {
+        "title": "Privacy Masking",
+        "desc": "Companion photos remain blurred until a booking is confirmed. Your discretion is our architecture."
+      },
+      "global": {
+        "title": "Global Multi-Lingual",
+        "desc": "15+ languages across our network. From Mandarin boardroom dinners to Arabic diplomatic receptions."
+      }
+    },
+    "cta": {
+      "eyebrow": "Access by Invitation",
+      "heading": "Ready to experience the extraordinary?",
+      "body": "Join a curated community of founders, executives, and tastemakers who expect nothing less than flawless.",
+      "btn": "Request Your Invitation"
+    }
+  },
+  "companions": {
+    "eyebrow": "Elite Companions",
+    "heading": "Your Perfect Match",
+    "countLabel": "{count} verified companions available. Bidirectional gender matching with AI-powered skill alignment.",
+    "search": "Search by name, skill...",
+    "noResults": "No companions match your criteria.",
+    "clearFilters": "Clear Filters",
+    "sort": {
+      "rating": "Top Rated",
+      "hourlyAsc": "Price: Low to High",
+      "hourlyDesc": "Price: High to Low",
+      "aiMatch": "AI Match Score"
+    },
+    "filters": {
+      "all": "All",
+      "corporate": "Corporate",
+      "diplomatic": "Diplomatic",
+      "gala": "Gala",
+      "cultural": "Cultural",
+      "fintech": "FinTech",
+      "social": "Social",
+      "wellness": "Wellness"
+    },
+    "card": {
+      "verified": "Verified",
+      "fromHr": "from ${rate}/hr",
+      "bookToReveal": "Book to Reveal",
+      "viewProfile": "View Profile"
+    }
+  },
+  "venues": {
+    "eyebrow": "Exclusive Venues",
+    "heading": "Spaces Beyond Ordinary",
+    "countLabel": "{count} venues available for private booking.",
+    "perHour": "/hr",
+    "book": "Book Venue",
+    "amenities": "Amenities",
+    "capacity": "Capacity"
+  },
+  "fleet": {
+    "eyebrow": "Luxury Fleet",
+    "heading": "Arrive in Distinction",
+    "countLabel": "{count} vehicles available with certified chauffeurs.",
+    "perHour": "/hr",
+    "book": "Book Vehicle",
+    "passengers": "passengers",
+    "languages": "Languages"
+  },
+  "auth": {
+    "login": {
+      "heading": "Welcome Back",
+      "sub": "Sign in to your VelvetHour account",
+      "email": "Email Address",
+      "password": "Password",
+      "forgot": "Forgot password?",
+      "submit": "Sign In",
+      "noAccount": "Don't have an account?",
+      "register": "Request Access"
+    },
+    "register": {
+      "heading": "Request Access",
+      "sub": "Join the world's most exclusive concierge platform",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email Address",
+      "password": "Password",
+      "confirmPassword": "Confirm Password",
+      "submit": "Submit Request",
+      "haveAccount": "Already have an account?",
+      "login": "Sign In",
+      "disclaimer": "By requesting access, you agree to our Terms of Service and NDA Policy. All applications are reviewed within 24 hours."
+    }
+  },
+  "footer": {
+    "tagline": "The world's most exclusive concierge platform. Elite companions, curated venues, and a luxury fleet — all under one discreet roof.",
+    "services": "Services",
+    "legal": "Legal",
+    "serviceItems": ["Companion Matching", "Venue Booking", "Fleet & Chauffeur", "Concierge Packages"],
+    "legalItems": ["Privacy Policy", "Terms of Service", "NDA Policy", "Escrow Terms"],
+    "copyright": "© 2025 VelvetHour. All rights reserved. Discretion guaranteed.",
+    "cities": "Tashkent · Dubai · London · Singapore"
+  }
+}

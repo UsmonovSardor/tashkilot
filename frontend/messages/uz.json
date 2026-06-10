@@ -46,7 +46,7 @@
       "fromHr": "${rate}/soatdan"
     },
     "trust": {
-      "eyebrow": "Nima uchun VelvetHour",
+      "eyebrow": "Nima uchun Alpha Zone",
       "heading": "Xavfsizlik. Maxfiylik.",
       "headingItalic": "Mukammallik.",
       "identity": {
@@ -124,7 +124,7 @@
   "auth": {
     "login": {
       "heading": "Xush Kelibsiz",
-      "sub": "VelvetHour hisobingizga kiring",
+      "sub": "Alpha Zone hisobingizga kiring",
       "email": "Elektron pochta",
       "password": "Parol",
       "forgot": "Parolni unutdingizmi?",
@@ -152,7 +152,7 @@
     "legal": "Huquqiy",
     "serviceItems": ["Hamroh Tanlash", "Maydon Bron Qilish", "Avtopark va Haydovchilar", "Konsyerj Paketlar"],
     "legalItems": ["Maxfiylik Siyosati", "Foydalanish Shartlari", "NDA Siyosati", "Eskrou Shartlari"],
-    "copyright": "© 2025 VelvetHour. Barcha huquqlar himoyalangan. Maxfiylik kafolatlanadi.",
+    "copyright": "© 2025 Alpha Zone. Barcha huquqlar himoyalangan. Maxfiylik kafolatlanadi.",
     "cities": "Toshkent · Dubay · London · Singapur"
   }
 }

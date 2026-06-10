@@ -18,8 +18,8 @@ export default function Footer() {
             <div className="flex items-center gap-3 mb-4">
               <VHLogo size={32} />
               <p className="font-display text-2xl font-light tracking-[0.15em]">
-                <span className="text-platinum">Velvet</span>
-                <span className="text-shimmer italic ml-0.5">Hour</span>
+                <span className="text-platinum">Alpha</span>
+                <span className="text-shimmer italic ml-0.5">Zone</span>
               </p>
             </div>
             <p className="text-muted text-sm leading-relaxed max-w-xs">{t('tagline')}</p>

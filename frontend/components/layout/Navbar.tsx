@@ -41,8 +41,8 @@ export default function Navbar() {
           <Link href="/" className="flex items-center gap-2.5 group">
             <VHLogo size={26} />
             <span className="font-display font-light tracking-[0.18em] text-[17px] leading-none">
-              <span className="text-platinum group-hover:text-platinum/90 transition-colors">Velvet</span>
-              <span className="text-shimmer italic ml-0.5">Hour</span>
+              <span className="text-platinum group-hover:text-platinum/90 transition-colors">Alpha</span>
+              <span className="text-shimmer italic ml-0.5">Zone</span>
             </span>
           </Link>
 

@@ -19,12 +19,12 @@ const cormorant = Cormorant_Garamond({
 })
 
 export const metadata: Metadata = {
-  title: 'VelvetHour — Ultra-Premium Concierge Platform',
-  description: 'Exclusive companion matching, luxury venue booking, and chauffeur fleet services for the discerning elite.',
-  keywords: ['luxury concierge', 'elite companion', 'VIP booking', 'luxury venue', 'chauffeur service'],
+  title: 'Alpha Zone — Premium B2B Business Platform',
+  description: 'Elite venue organization, partner matching, and luxury fleet services for business leaders and executives.',
+  keywords: ['business concierge', 'venue booking', 'partner matching', 'luxury fleet', 'VIP services', 'B2B platform'],
   openGraph: {
-    title: 'VelvetHour',
-    description: 'Where exclusivity meets experience.',
+    title: 'Alpha Zone',
+    description: 'Where business meets excellence.',
     type: 'website',
   },
 }

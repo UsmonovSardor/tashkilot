@@ -9,7 +9,7 @@ export default function Preloader() {
 
   useEffect(() => {
     // Check if already shown this session
-    if (sessionStorage.getItem('vh_loaded')) {
+    if (sessionStorage.getItem('az_loaded')) {
       setVisible(false)
       return
     }
@@ -22,7 +22,7 @@ export default function Preloader() {
         clearInterval(interval)
         setTimeout(() => {
           setVisible(false)
-          sessionStorage.setItem('vh_loaded', '1')
+          sessionStorage.setItem('az_loaded', '1')
         }, 600)
       }
       setProgress(Math.min(p, 100))
@@ -77,7 +77,7 @@ export default function Preloader() {
                   className="font-display text-2xl font-light tracking-[0.15em] text-gold"
                   style={{ fontFamily: 'var(--font-cormorant), Georgia, serif' }}
                 >
-                  VH
+                  AZ
                 </span>
               </div>
             </div>
@@ -91,7 +91,7 @@ export default function Preloader() {
             className="font-display text-lg font-light tracking-[0.5em] uppercase text-platinum/60 mb-8"
             style={{ fontFamily: 'var(--font-cormorant), Georgia, serif' }}
           >
-            VelvetHour
+            Alpha Zone
           </motion.p>
 
           {/* Progress bar */}

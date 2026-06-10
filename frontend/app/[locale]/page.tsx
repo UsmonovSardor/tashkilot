@@ -71,8 +71,8 @@ export default function HomePage() {
             className="font-display font-light leading-[0.9] mb-6"
             style={{ fontSize: 'clamp(4rem, 12vw, 8rem)' }}
           >
-            <span className="block text-platinum tracking-[0.04em]">Velvet</span>
-            <span className="block text-shimmer italic tracking-[0.06em]">Hour</span>
+            <span className="block text-platinum tracking-[0.04em]">Alpha</span>
+            <span className="block text-shimmer italic tracking-[0.06em]">Zone</span>
           </motion.h1>
           <motion.div {...fadeUp} transition={{ delay: 0.2 }} className="gold-rule" />
           <motion.p
@@ -286,7 +286,7 @@ export default function HomePage() {
 
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { quote: 'The most discreet and professional concierge experience I have encountered across three continents. VelvetHour operates at a different level entirely.', initials: 'A.K.', title: 'Managing Partner, Sovereign Capital' },
+              { quote: 'The most discreet and professional concierge experience I have encountered across three continents. Alpha Zone operates at a different level entirely.', initials: 'A.K.', title: 'Managing Partner, Sovereign Capital' },
               { quote: 'From diplomatic reception planning to fleet coordination — executed flawlessly. My team has never presented better to our Gulf partners.', initials: 'R.M.', title: 'CEO, Meridian Holdings' },
               { quote: 'Invitation-only means something here. Every companion is exceptional, every venue immaculate. This is what genuine exclusivity feels like.', initials: 'S.T.', title: 'Principal Investor, Asia Pacific' },
             ].map((t, i) => (

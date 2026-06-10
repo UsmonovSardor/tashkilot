@@ -46,7 +46,7 @@
       "fromHr": "from ${rate}/hr"
     },
     "trust": {
-      "eyebrow": "Why VelvetHour",
+      "eyebrow": "Why Alpha Zone",
       "heading": "Security. Discretion.",
       "headingItalic": "Excellence.",
       "identity": {
@@ -124,7 +124,7 @@
   "auth": {
     "login": {
       "heading": "Welcome Back",
-      "sub": "Sign in to your VelvetHour account",
+      "sub": "Sign in to your Alpha Zone account",
       "email": "Email Address",
       "password": "Password",
       "forgot": "Forgot password?",
@@ -152,7 +152,7 @@
     "legal": "Legal",
     "serviceItems": ["Companion Matching", "Venue Booking", "Fleet & Chauffeur", "Concierge Packages"],
     "legalItems": ["Privacy Policy", "Terms of Service", "NDA Policy", "Escrow Terms"],
-    "copyright": "© 2025 VelvetHour. All rights reserved. Discretion guaranteed.",
+    "copyright": "© 2025 Alpha Zone. All rights reserved. Discretion guaranteed.",
     "cities": "Tashkent · Dubai · London · Singapore"
   }
 }

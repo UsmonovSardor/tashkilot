@@ -6,6 +6,9 @@ import { useTranslations } from 'next-intl'
 import { Link } from '@/i18n/navigation'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
+import { PartnersSection } from '@/components/sections/PartnersSection'
+import { TestimonialsSection } from '@/components/sections/TestimonialsSection'
+import { GlobeSection } from '@/components/sections/GlobeSection'
 
 const STATS_KEYS = ['18+', '6', '9', '100%'] as const
 const STAT_LABELS = ['companions', 'venues', 'vehicles', 'verified'] as const
@@ -268,51 +271,14 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── TESTIMONIALS ────────────────────────────────────── */}
-      <section className="py-28 px-4 bg-charcoal border-y border-border">
-        <div className="max-w-5xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <p className="text-gold text-xs tracking-[0.4em] uppercase mb-4">Testimonials</p>
-            <h2 className="font-display text-4xl md:text-5xl text-platinum font-light">
-              Voices of the <em>Elite</em>
-            </h2>
-            <div className="gold-rule" />
-          </motion.div>
+      {/* ── PARTNERS ──────────────────────────────────────── */}
+      <PartnersSection />
 
-          <div className="grid md:grid-cols-3 gap-6">
-            {[
-              { quote: 'The most discreet and professional concierge experience I have encountered across three continents. Alpha Zone operates at a different level entirely.', initials: 'A.K.', title: 'Managing Partner, Sovereign Capital' },
-              { quote: 'From diplomatic reception planning to fleet coordination — executed flawlessly. My team has never presented better to our Gulf partners.', initials: 'R.M.', title: 'CEO, Meridian Holdings' },
-              { quote: 'Invitation-only means something here. Every companion is exceptional, every venue immaculate. This is what genuine exclusivity feels like.', initials: 'S.T.', title: 'Principal Investor, Asia Pacific' },
-            ].map((t, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.12 }}
-                className="glass-card p-8 relative"
-              >
-                <div className="text-gold/20 font-display text-6xl leading-none absolute top-4 left-6 select-none">"</div>
-                <p className="text-platinum/70 text-sm leading-relaxed mb-6 pt-4 italic">
-                  {t.quote}
-                </p>
-                <div className="flex items-center gap-3 pt-4 border-t border-border">
-                  <div className="w-9 h-9 border border-gold/30 flex items-center justify-center">
-                    <span className="font-display text-sm text-gold font-medium">{t.initials}</span>
-                  </div>
-                  <p className="text-muted text-xs tracking-wide">{t.title}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* ── TESTIMONIALS (animated columns, trilingual) ───── */}
+      <TestimonialsSection />
+
+      {/* ── GLOBE ──────────────────────────────────────────── */}
+      <GlobeSection />
 
       {/* ── CTA BANNER ──────────────────────────────────────── */}
       <section className="relative overflow-hidden">

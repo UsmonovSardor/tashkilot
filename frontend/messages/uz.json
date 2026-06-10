@@ -146,6 +146,32 @@
       "disclaimer": "Ariza yuborish orqali Foydalanish Shartlarimiz va NDA Siyosatimizga rozilik bildirasiz. Barcha arizalar 24 soat ichida ko'rib chiqiladi."
     }
   },
+  "partners": {
+    "eyebrow": "Bizning hamkorlarimiz",
+    "heading": "Biznes Rahbarlarining Ishonchi",
+    "sub": "Alpha Zone — Markaziy Osiyo va undan tashqaridagi rahbarlar, korporatsiyalar va premium xizmat ko'rsatuvchilar uchun tanlangan platforma."
+  },
+  "testimonials": {
+    "eyebrow": "Mijoz sharhlari",
+    "heading": "Mijozlarimiz nima deydi",
+    "sub": "Alpha Zonega ishongan rahbarlarning fikrlari.",
+    "items": [
+      { "text": "Alpha Zone bizning ijroiya tadbirlarni tashkillashtirish uslubimizni butunlay o'zgartirdi. Maydon tanlash va hamkor moslashtiruvi tengsiz.", "name": "Rustam Nazarov", "role": "Bosh direktor, Meridian Capital" },
+      { "text": "Avtopark koordinatsiyasidan VIP hamroh tanlashgacha — har bir detal mukammal edi. Biznes mehmon kutish shunday bo'lishi kerak.", "name": "Asel Jaqsibekova", "role": "Protokol boshlig'i, Summit Group" },
+      { "text": "Uchta xalqaro delegatsiya uchun Alpha Zoneni ishlatdik. Maxfiy, professional va doimo bir qadam oldinda.", "name": "Timur Hakimov", "role": "Boshqaruv direktori, Nexus Holdings" },
+      { "text": "Maydon tanlash darajasi ajoyib. Fors ko'rfazi hamkorlarimiz tashkilot darajasidan chuqur ta'sirlandi.", "name": "Nilufar Yusupova", "role": "Biznes rivojlanish, Silk Road Partners" },
+      { "text": "Faqat taklifnoma bilan kirish sifat kafolatini beradi. Alpha Zone bilan har bir tajriba kutilgandan oshib ketdi.", "name": "Bobur Toshkentov", "role": "Yetakchi investor, Osiyo-Tinch okeani" },
+      { "text": "Korporativ retritlarimiz endi faqat Alpha Zone orqali tashkillanadi. Xizmat darajasi butunlay boshqa ligada.", "name": "Diana Karimova", "role": "Operatsion menejer, Elite Ventures" },
+      { "text": "Birinchi aloqadan yakuniy schyotgacha — muammosiz. Alpha Zone biznes rahbarlarining ehtiyojini tushunadi.", "name": "Jasur Mirzayev", "role": "Asoschi, Digital Horizons" },
+      { "text": "Avtopark xizmatining o'zi har bir sentga arziydi. Ko'p tilli haydovchilar bilan Rolls-Royce mijozlarimizni haqiqatan qadrlangan his qildirdi.", "name": "Kamola Ergasheva", "role": "Tadbir direktori, Prestige Events" },
+      { "text": "20 yillik ijroiya ishim davomida bunday nozik xizmat platformasiga duch kelmaganman. Alpha Zone standartni belgilaydi.", "name": "Alisher Rahimov", "role": "Katta hamkor, Sovereign Advisory" }
+    ]
+  },
+  "globe": {
+    "eyebrow": "Global miqyos",
+    "heading": "Butun Dunyoda Faoliyat",
+    "sub": "Toshkentdan Dubayga, Londondan Singapurgacha — Alpha Zone biznes rahbarlarini ular faoliyat ko'rsatadigan joyda premium xizmatlar bilan bog'laydi."
+  },
   "footer": {
     "tagline": "Dunyoning eng eksklyuziv konsyerj platformasi. Elite hamrohlar, tanlangan maydonlar va hashamatli avtopark — hammasi bir tom ostida.",
     "services": "Xizmatlar",

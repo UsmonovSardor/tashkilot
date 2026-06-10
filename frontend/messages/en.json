@@ -146,6 +146,32 @@
       "disclaimer": "By requesting access, you agree to our Terms of Service and NDA Policy. All applications are reviewed within 24 hours."
     }
   },
+  "partners": {
+    "eyebrow": "Our Partners",
+    "heading": "Trusted by Business Leaders",
+    "sub": "Alpha Zone is the platform of choice for executives, corporations, and premium service providers across Central Asia and beyond."
+  },
+  "testimonials": {
+    "eyebrow": "Client Reviews",
+    "heading": "What Our Clients Say",
+    "sub": "Voices from the leaders who trust Alpha Zone.",
+    "items": [
+      { "text": "Alpha Zone completely transformed how we organize our executive events. The venue selection and partner matching are simply unmatched.", "name": "Rustam Nazarov", "role": "CEO, Meridian Capital" },
+      { "text": "From fleet coordination to VIP companion matching — every detail was flawless. This is how business hospitality should work.", "name": "Asel Dzhaksybekova", "role": "Head of Protocol, Summit Group" },
+      { "text": "We've used Alpha Zone for three international delegations. Discreet, professional, and always one step ahead.", "name": "Timur Hakimov", "role": "Managing Director, Nexus Holdings" },
+      { "text": "The venue curation is extraordinary. Our Gulf partners were deeply impressed by the arrangements.", "name": "Nilufar Yusupova", "role": "Business Development, Silk Road Partners" },
+      { "text": "Invitation-only access means quality is guaranteed. Every experience with Alpha Zone has exceeded expectations.", "name": "Bobur Tashkentov", "role": "Principal Investor, Asia Pacific" },
+      { "text": "Our corporate retreats are now handled exclusively through Alpha Zone. The level of service is in a different league.", "name": "Diana Karimova", "role": "Operations Manager, Elite Ventures" },
+      { "text": "From the first contact to the final invoice — seamless. Alpha Zone understands what business leaders need.", "name": "Jasur Mirzayev", "role": "Founder, Digital Horizons" },
+      { "text": "The fleet service alone is worth every dollar. Rolls-Royce with multilingual chauffeurs made our clients feel truly valued.", "name": "Kamola Ergasheva", "role": "Event Director, Prestige Events" },
+      { "text": "In my 20 years of executive work, I have not encountered a service platform this refined. Alpha Zone sets the standard.", "name": "Alisher Rakhimov", "role": "Senior Partner, Sovereign Advisory" }
+    ]
+  },
+  "globe": {
+    "eyebrow": "Global Reach",
+    "heading": "Operating Across the World",
+    "sub": "From Tashkent to Dubai, London to Singapore — Alpha Zone connects business leaders with premium services wherever they operate."
+  },
   "footer": {
     "tagline": "The world's most exclusive concierge platform. Elite companions, curated venues, and a luxury fleet — all under one discreet roof.",
     "services": "Services",

@@ -15,6 +15,16 @@ use Illuminate\Support\Facades\Route;
 |--------------------------------------------------------------------------
 */
 
+// API root info
+Route::get('/', function () {
+    return response()->json([
+        'service'  => 'VelvetHour API',
+        'version'  => 'v1',
+        'status'   => 'online',
+        'docs'     => '/api/v1',
+    ]);
+});
+
 Route::prefix('v1')->group(function () {
 
     // ── Auth (public) ──────────────────────────────────────────────────

@@ -1,7 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'standalone',
-
   images: {
     remotePatterns: [
       { protocol: 'https', hostname: 'images.unsplash.com' },
@@ -10,12 +8,10 @@ const nextConfig = {
     ],
   },
 
-  // Disable ESLint during builds to prevent build failures
   eslint: {
     ignoreDuringBuilds: true,
   },
 
-  // Disable TypeScript errors during builds
   typescript: {
     ignoreBuildErrors: true,
   },

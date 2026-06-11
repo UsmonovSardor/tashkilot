@@ -13,6 +13,20 @@ const nextConfig = {
   },
   eslint: { ignoreDuringBuilds: true },
   typescript: { ignoreBuildErrors: true },
+  transpilePackages: [
+    'cobe',
+    '@tsparticles/react',
+    '@tsparticles/slim',
+    '@tsparticles/engine',
+    '@tsparticles/updater-opacity',
+    '@tsparticles/updater-size',
+    '@tsparticles/move-base',
+    '@tsparticles/plugin-emitter',
+    'react-use-measure',
+  ],
+  experimental: {
+    esmExternals: false,
+  },
 }
 
 module.exports = withNextIntl(nextConfig)
